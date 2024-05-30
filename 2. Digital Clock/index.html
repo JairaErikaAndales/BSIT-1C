@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>CLOCK</title>
+<style>
+  body {
+    background-image: url('https://i.pinimg.com/originals/58/bd/82/58bd827dc0715589a5a86872feb66eae.jpg');
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+  #time {
+      font-size: 50px;
+      color: black;
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: white;      
+      padding: 20px;
+      border-radius: 30px;
+      border: solid black;
+  }
+</style>
+</head>
+<body>
+   <h1 id="time"></h1>
+</body>
+<script>
+    function updateTime (){
+   let time = new Date()
+   let hours = time.getHours().toString().padStart(2,"0");
+   let mins = time.getMinutes().toString().padStart(2,"0");
+   let secs =time.getSeconds().toString().padStart(2,"0");
+   
+   document.getElementById("time").innerHTML = hours + ":" + mins + ":" + secs
+   
+   if (secs == 0) {
+     alert("PAG MATA NA BADII!!!")
+     clearInterval(setinterval)
+    
+   }
+}
+
+  updateTime();
+ let setinterval = setInterval(updateTime, 1000);
+</script>
+</html>

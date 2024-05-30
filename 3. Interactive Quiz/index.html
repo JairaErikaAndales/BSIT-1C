@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+</head>
+<style>
+body {
+background-image: url('https://i.pinimg.com/originals/db/34/d4/db34d40b271fb59477621550bf73ea0b.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+font-family: Arial, sans-serif;
+margin: 0;  
+padding: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+max-width: 100%;
+font-size: xx-large;
+}
+
+.quiz-container {
+  color: black;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.quiz {
+  transition: opacity 0.3s ease;
+}
+
+.options button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.options button:hover {
+    transition: ease-in-out;
+  background-color: red;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: blue;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: red;
+}
+
+.result {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+</style>
+<body>
+  <div id="quiz-container" class="quiz-container">
+    <div id="quiz" class="quiz">
+      <h2 id="question" class="question"></h2>
+      <div id="options" class="options"></div>
+      <button id="submitBtn" class="submit-btn">Next</button>
+    </div>
+    <div id="result" class="result"></div>
+  </div>
+
+<script>
+    const quizData = [
+  {
+    question: "1. What Year does CPC founded?",
+    options: ["1986", "1990", "2005",],
+    answer: "2005"
+  },
+  {
+    question: "2. Whice barangay does CPC located?",
+    options: ["Ibabao", "Poblacion", "Gabi",],
+    answer: "Gabi"
+  },
+  {
+    question: "3. Does the CPC have a roffdeck?",
+    options: ["Yes", "No", "Maybe",],
+    answer: "Yes"
+  },
+  {
+    question: "4.Is CPC a recommended school? ",
+    options: ["Depends", "Yes", "No",],
+    answer: "Depends"
+  },
+  {
+    question: "5. What year it is now? ",
+    options: ["2024", "2025", "2026",],
+    answer: "2024"
+  },
+];
+
+const quizContainer = document.getElementById('quiz');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const submitButton = document.getElementById('submitBtn');
+const resultElement = document.getElementById('result');
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+  const currentQuizData = quizData[currentQuestion];
+  questionElement.innerText = currentQuizData.question;
+  optionsElement.innerHTML = '';
+  currentQuizData.options.forEach(option => {
+    const button = document.createElement('button');
+    button.innerText = option;
+    button.addEventListener('click', () => selectOption(option));
+    optionsElement.appendChild(button);
+  });
+}
+
+function selectOption(selectedOption) {
+  const currentQuizData = quizData[currentQuestion];
+  if (selectedOption === currentQuizData.answer) {
+    score++;
+    alert("Correct!");
+  } else {
+    alert("InCorrect!");
+  }
+}
+function showFeedbackAndNext() {
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+}
+function showResult() {
+  quizContainer.style.opacity = '0';
+  setTimeout(() => {
+    quizContainer.style.display = 'none';
+    resultElement.style.display = 'block';
+    resultElement.innerHTML = `<h2>You Scored: ${score}/${quizData.length}</h2>`;
+  }, 300);
+}
+
+function initializeQuiz() {
+  loadQuestion();
+}
+
+submitButton.addEventListener('click', showFeedbackAndNext);
+
+initializeQuiz();
+
+</script>
+</body>
+</html>
