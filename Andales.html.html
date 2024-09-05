@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Array Methods</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            
+        }
+        h2 {
+            color: black;
+        }
+        .container{
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 3px solid black;
+            border-radius: 5px;
+            width: 200px;
+            display: grid;
+            align-items:end ;
+            
+        }
+        pre {
+            background-color: grey;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: none;
+            background-color: hsl(249, 100%, 50%);
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Array Methods</h1>
+
+    <div class="container">
+        <h2 class="box">Array length</h2>
+        <p><strong>Example:</strong> <code>array.length</code></p>
+        <button onclick="showLength()">Try it</button>
+        <pre id="lengthExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2 class="box">Array toString()</h2>
+        <p><strong>Example:</strong> <code>array.toString()</code></p>
+        <button onclick="showToString()">Try it</button>
+        <pre id="toStringExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array at()</h2>
+        <p><strong>Example:</strong> <code>array.at(index)</code></p>
+        <button onclick="showAt()">Try it</button>
+        <pre id="atExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array join()</h2>
+        <p><strong>Example:</strong> <code>array.join(separator)</code></p>
+        <button onclick="showJoin()">Try it</button>
+        <pre id="joinExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array pop()</h2>
+        <p><strong>Example:</strong> <code>array.pop()</code></p>
+        <button onclick="showPop()">Try it</button>
+        <pre id="popExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array push()</h2>
+        <p><strong>Example:</strong> <code>array.push(element)</code></p>
+        <button onclick="showPush()">Try it</button>
+        <pre id="pushExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array shift()</h2>
+        <p><strong>Example:</strong> <code>array.shift()</code></p>
+        <button onclick="showShift()">Try it</button>
+        <pre id="shiftExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array unshift()</h2>
+        <p><strong>Example:</strong> <code>array.unshift(element)</code></p>
+        <button onclick="showUnshift()">Try it</button>
+        <pre id="unshiftExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array delete</h2>
+        <p><strong>Example:</strong> <code>delete array[index]</code></p>
+        <button onclick="showDelete()">Try it</button>
+        <pre id="deleteExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array concat()</h2>
+        <p><strong>Example:</strong> <code>array1.concat(array2)</code></p>
+        <button onclick="showConcat()">Try it</button>
+        <pre id="concatExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array copyWithin()</h2>
+        <p><strong>Example:</strong> <code>array.copyWithin(target, start, end)</code></p>
+        <button onclick="showCopyWithin()">Try it</button>
+        <pre id="copyWithinExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array flat()</h2>
+        <p><strong>Example:</strong> <code>array.flat(depth)</code></p>
+        <button onclick="showFlat()">Try it</button>
+        <pre id="flatExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array splice()</h2>
+        <p><strong>Example:</strong> <code>array.splice(start, deleteCount, item1, item2, ...)</code></p>
+        <button onclick="showSplice()">Try it</button>
+        <pre id="spliceExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array toSpliced()</h2>
+        <p><strong>Example:</strong> <code>array.toSpliced(start, deleteCount, item1, item2, ...)</code></p>
+        <button onclick="showToSpliced()">Try it</button>
+        <pre id="toSplicedExample"></pre>
+    </div>
+
+    <div class="container">
+        <h2>Array slice()</h2>
+        <p><strong>Example:</strong> <code>array.slice(start, end)</code></p>
+        <button onclick="showSlice()">Try it</button>
+        <pre id="sliceExample"></pre>
+    </div>
+
+    <script>
+        const sampleArray = [1, 2, 3, 4, 5];
+        
+        //Array Method Length
+        function showLength() {
+            document.getElementById("lengthExample").innerText = sampleArray.length;
+        }
+
+        //Array Method Tostring
+        function showToString() {
+            document.getElementById("toStringExample").innerText = sampleArray.toString();
+        }
+
+        //Array Method At
+        function showAt() {
+            document.getElementById("atExample").innerText = sampleArray.at(2); // returns element at index 2
+        }
+
+        //Array Method Join
+        function showJoin() {
+            document.getElementById("joinExample").innerText = sampleArray.join(" - ");
+        }
+
+        //Array Method Pop
+        function showPop() {
+            const arr = [...sampleArray];
+            arr.pop();
+            document.getElementById("popExample").innerText = arr.toString();
+        }
+
+        //Array Method Push
+        function showPush() {
+            const arr = [...sampleArray];
+            arr.push(6);
+            document.getElementById("pushExample").innerText = arr.toString();
+        }
+
+        //Array Method Shift 
+        function showShift() {
+            const arr = [...sampleArray];
+            arr.shift();
+            document.getElementById("shiftExample").innerText = arr.toString();
+        }
+
+        //Array Method Unshift
+        function showUnshift() {
+            const arr = [...sampleArray];
+            arr.unshift(0);
+            document.getElementById("unshiftExample").innerText = arr.toString();
+        }
+
+        //Array Method Delete
+        function showDelete() {
+            const arr = [...sampleArray];
+            delete arr[1]; // delete second element
+            document.getElementById("deleteExample").innerText = arr.toString();
+        }
+
+        //Array Method Concat
+        function showConcat() {
+            const arr2 = [6, 7, 8];
+            document.getElementById("concatExample").innerText = sampleArray.concat(arr2).toString();
+        }
+
+        //Array Method Copywithin
+        function showCopyWithin() {
+            const arr = [...sampleArray];
+            arr.copyWithin(1, 3);
+            document.getElementById("copyWithinExample").innerText = arr.toString();
+        }
+
+        //Array Method Flat
+        function showFlat() {
+            const nestedArray = [1, [2, 3], [4, [5]]];
+            document.getElementById("flatExample").innerText = nestedArray.flat(2).toString();
+        }
+
+        //Array Method Splice
+        function showSplice() {
+            const arr = [...sampleArray];
+            arr.splice(2, 1, 10);
+            document.getElementById("spliceExample").innerText = arr.toString();
+        }
+      
+        // Array Method toSpliced 
+        function showToSpliced() {
+            const arr = [...sampleArray];
+            const newArr = arr.toSpliced(2, 1, 10);
+            document.getElementById("toSplicedExample").innerText = newArr.toString();
+        }
+
+        // Array Method Slice
+        function showSlice() {
+            document.getElementById("sliceExample").innerText = sampleArray.slice(1, 4).toString();
+        }
+    </script>
+
+</body>
+</html>
